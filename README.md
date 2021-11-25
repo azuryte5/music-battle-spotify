@@ -1,6 +1,11 @@
 # music-battle-spotify
 Project II
 
+- Main will be locked. Everyone should be pulling and pushing to develop
+- First time from your desktop do git checkout -b develop
+- pull from there and you should keep code chain
+   
+
 # Table of Contents
 1. [Group Members](#group-members)
 1. [Links](#links)
