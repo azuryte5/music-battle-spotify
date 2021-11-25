@@ -1,0 +1,22 @@
+{
+  "name": "music-battle-spotify",
+  "version": "1.0.0",
+  "description": "Project II",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seeds": "node seeds/index.js",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/azuryte5/music-battle-spotify.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/azuryte5/music-battle-spotify/issues"
+  },
+  "homepage": "https://github.com/azuryte5/music-battle-spotify#readme"
+}
