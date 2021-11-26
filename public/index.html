@@ -42,7 +42,65 @@
           <div id="loggedin">
           </div>
       </div>
-      
+
+      <main>
+        <table width="560" style="padding: 2px; border: 1px solid #888899; background-color:#EEEEEE; ">
+          <tbody><tr>
+            <td>
+                Song_1: 
+                <input id="elo1" value="1000" size="8">
+                </td>
+            <td>
+        </td>
+        </tr><tr>
+        <td>
+                Song_2: 
+         <input id="elo2" value="1000" size="8"></td>
+        <td><button type="button" id="button">Calculate Change</button></td>
+        </tr></tbody></table>
+
+        <form name="ratingchange" id="ratingchange" action="">
+          <table width="560" style="border: 1px solid #888899; background-color:#EEEEEE"><tbody><tr>
+          <table width="100%" style="margin: 4px 4px 4px 4px;"><tbody><tr>
+          <td width="25%">song_1 would improve</td>
+          <td width="25%">song_1 would decrease</td>
+          <td width="25%">song_1 If Won, score</td>
+          <td width="25%">song_1 IF Lost, score</td>
+          </tr>
+          <tr><td>
+          <input name="win_1" value="0" size="8" style="border: 0px; font-weight:bold; background-color:#EEEEEE">
+          </td><td>
+          <input name="loss_1" value="0" size="8" style="border: 0px; font-weight:bold; background-color:#EEEEEE">
+          </td><td>
+          <input name="score_1" value="0" size="8" style="border: 0px; font-weight:bold; background-color:#EEEEEE">
+          </td><td>
+          <input name="score_1b" value="0" size="8" style="border: 0px; font-weight:bold; background-color:#EEEEEE">  
+          </td>
+          </tr></tr></tbody></table>
+          </tr></tbody></table>
+          </form>
+
+          <form name="ratingchange2" id="ratingchange2" action="">
+            <table width="560" style="border: 1px solid #888899; background-color:#EEEEEE"><tbody><tr>
+            <table width="100%" style="margin: 4px 4px 4px 4px;"><tbody><tr>
+            <td width="25%">song_2 would improve</td>
+            <td width="25%">song_2 would decrease</td>
+            <td width="25%">song_2 if Won, score</td>
+            <td width="25%">song_2 if Lost, score</td>
+            </tr>
+            <tr><td>
+            <input name="win_2" value="0" size="8" style="border: 0px; font-weight:bold; background-color:#EEEEEE">
+            </td><td>
+            <input name="loss_2" value="0" size="8" style="border: 0px; font-weight:bold; background-color:#EEEEEE">
+            </td><td>
+            <input name="score_2" value="0" size="8" style="border: 0px; font-weight:bold; background-color:#EEEEEE">  
+            </td><td>
+            <input name="score_2b" value="0" size="8" style="border: 0px; font-weight:bold; background-color:#EEEEEE">  
+            </td>  
+            </td></tr></tbody></table>
+            </tr></tbody></table>
+            </form>
+      </main>
       <footer>
         <h2>Powered by Spotify</h2>
       </footer> 
@@ -50,6 +108,6 @@
 
 
   
-      
+    <script src="script.js"></script>
     </body>
 </html>
