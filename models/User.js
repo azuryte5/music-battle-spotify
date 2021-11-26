@@ -15,7 +15,14 @@ User.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false
-    }, 
+    } 
+  },
+  {
+    sequelize: sequelize,
+    timestamps: false,
+    freezeTableName: true,
+    underscored: true,
+    modelName: 'user'
   }
 );
 

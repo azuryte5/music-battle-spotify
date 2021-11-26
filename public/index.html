@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <!-- this file will should be replace by handlebars. navbar will need to have logged in/logged out versions  -->
 
-<html>
+<html >
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Music Battle</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 
     <!-- <style type="text/css">
     #login {
@@ -20,28 +21,65 @@
   </head> 
     <body>
       <header>
-        <h1>Music Battle</h1>
+        <nav class="navbar is-light is-active is-centered" role="navigation" aria-label="main navigation">
+          <div class="navbar-brand">
+            <a class="navbar-item" href="https://open.spotify.com/">
+              <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" width="112" height="28">
+            </a>
+          </div>
+        
+          <div class="navbar-menu is-active">
+            <div class="navbar-start ">
+              <a class="navbar-item is-centered" href="/home">
+                Sputtle
+              </a>
+        
+              <a class="navbar-item is-centered" href="/leaderboard">
+                Leaderboard
+              </a>
+              <a class="navbar-item is-centered" href="/users">
+                Users
+              </a>
+              
+            </div>
+        
+            <div class="navbar-end">
+              <div class="navbar-item">
+                <div class="buttons">
+                   <a class="button is-prinary" href="/login">
+                    Log in
+                  </a>
+                  <a class="button is-light" href="/logout" disabled>
+                    Logout
+                  </a>
+                 
+                </div>
+              </div>
+            </div>
+          </div>
+        </nav>
+        <!-- <h1>Music Battle</h1> -->
             <!-- {{#if loggedIn}} -->
-            <a href="/home">Home</a>
-            <a href="/leaderboard">Leaderboard</a>
-            <a href="/dashboard">Dashboard</a>
-            <a href="/logout">Logout</a>
+            <!-- <a href="/home">Home</a> -->
+            <!-- <a href="/leaderboard">Leaderboard</a> -->
+            <!-- <a href="/dashboard">Dashboard</a> -->
+            <!-- <a href="/logout">Logout</a> -->
             <!-- {{else}} -->
             <!-- <a href="/home">Home</a>
             <a href="/leaderboard">Leaderboard</a> -->
-            <div id="login">
-            <a href="/login">Login</a>
-            </div>
+            <!-- <div id="login"> -->
+            <!-- <a href="/login">Login</a> -->
+            <!-- </div> -->
             <!-- {{/if}} -->
       </header>
-      <div>
+      <!-- <div> -->
           <!-- <div id="login">
           <h1>First, log in to spotify</h1>
           <a href="/login">Log in</a>
           </div> -->
-          <div id="loggedin">
-          </div>
-      </div>
+          <!-- <div id="loggedin"> -->
+          <!-- </div> -->
+      <!-- </div> -->
 
       <main>
         <table width="560" style="padding: 2px; border: 1px solid #888899; background-color:#EEEEEE; ">
