@@ -43,7 +43,7 @@ The link to the heroku: {TBD}
 - connect session sequelize
 - heroku & JawsDB
 - Bulma
-
+https://github.com/moroshko/elo.js
 
 ## User Story
 
