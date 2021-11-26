@@ -17,7 +17,7 @@ router.get('/userplaylists', (req, res) => {
 });
 
 
-
+//gets list of tracks/song info for our playlist
 router.get('/', (req, res) => {
   var playlistID = "63ZyQhDqXWsq0Z39oiyq8q";
   var options = {
