@@ -1,5 +1,6 @@
 var request = require('request'); // "Request" library
 var querystring = require('querystring');
+const User = require('../models/User');
 
 
 var client_id = '95a40f72efe7427997b6d815241b2315'; // Our client id
