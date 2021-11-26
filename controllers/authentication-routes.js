@@ -37,7 +37,7 @@ router.get('/login', function(req, res) {
   res.cookie(stateKey, state);
 
   // requests authorization from Spotify
-  var scope = 'user-read-private user-read-email';
+  var scope = 'user-read-private user-read-email playlist-read-collaborative playlist-read-private user-library-read';
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
