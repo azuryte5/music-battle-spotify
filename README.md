@@ -59,6 +59,6 @@ https://github.com/moroshko/elo.js
 
 ----
 ## Credits
-
+Some source code from https://www.3dkingdoms.com/chess/elo.htm
 
 -----
