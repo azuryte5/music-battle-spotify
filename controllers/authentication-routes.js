@@ -1,10 +1,12 @@
 var request = require('request'); // "Request" library
 var querystring = require('querystring');
 const User = require('../models/User');
+require('dotenv').config();
+
 
 
 var client_id = '95a40f72efe7427997b6d815241b2315'; // Our client id
-var client_secret = '9a516fa30c844e6281e2a7d93c0f0d24'; // Our secret
+var client_secret = process.env.CLIENT_SECRET; // Our secret
 var redirect_uri = 'http://localhost:8888/callback'; // Our redirect/callback uri
 
 /**
@@ -35,7 +37,7 @@ router.get('/login', function(req, res) {
   res.cookie(stateKey, state);
 
   // requests authorization from Spotify
-  var scope = 'user-read-private user-read-email';
+  var scope = 'user-read-private user-read-email playlist-read-collaborative playlist-read-private user-library-read';
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
