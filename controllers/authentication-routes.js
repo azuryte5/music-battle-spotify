@@ -32,7 +32,6 @@ var stateKey = 'spotify_auth_state';
 const router = require('express').Router();
 
 router.get('/login', function(req, res) {
-
   var state = generateRandomString(16);
   res.cookie(stateKey, state);
 
@@ -101,6 +100,25 @@ router.get('/callback', function(req, res) {
         // use the access token to access the Spotify Web API
         request.get(options, function(error, response, body) {
           console.log(body);
+          
+        User.findOrCreate({
+          where: { username: body.id },
+            // defaults: {
+            //   job: 'Technical Lead JavaScript'
+            // }
+            
+          })
+          .then((user, created) => { 
+            req.session.username = user.username;
+            req.session.id = user.id;
+            console.log(user.username); 
+            console.log(user.id)
+          // console.log(user.job); // This may or may not be 'Technical Lead JavaScript'
+            console.log(created); // The boolean indicating whether this instance was just created
+          // if (created) {
+          //   console.log(user.job); // This will certainly be 'Technical Lead JavaScript'
+          // }
+          });
         });
 
         // we can also pass the token to the browser to make requests from there
