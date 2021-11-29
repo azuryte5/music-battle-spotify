@@ -1,12 +1,10 @@
 var request = require('request'); // "Request" library
 var querystring = require('querystring');
 const User = require('../models/User');
-require('dotenv').config();
-
 
 
 var client_id = '95a40f72efe7427997b6d815241b2315'; // Our client id
-var client_secret = process.env.CLIENT_SECRET; // Our secret
+var client_secret = '9a516fa30c844e6281e2a7d93c0f0d24'; // Our secret
 var redirect_uri = 'http://localhost:8888/callback'; // Our redirect/callback uri
 
 /**
@@ -32,11 +30,12 @@ var stateKey = 'spotify_auth_state';
 const router = require('express').Router();
 
 router.get('/login', function(req, res) {
+
   var state = generateRandomString(16);
   res.cookie(stateKey, state);
 
   // requests authorization from Spotify
-  var scope = 'user-read-private user-read-email playlist-read-collaborative playlist-read-private user-library-read';
+  var scope = 'user-read-private user-read-email';
   res.redirect('https://accounts.spotify.com/authorize?' +
     querystring.stringify({
       response_type: 'code',
@@ -84,7 +83,6 @@ router.get('/callback', function(req, res) {
 
         req.session.access_token = body.access_token;
         req.session.refresh_token = body.refresh_token;
-        console.log(req.session.access_token)
 
         var options = {
           url: 'https://api.spotify.com/v1/me',
@@ -100,25 +98,6 @@ router.get('/callback', function(req, res) {
         // use the access token to access the Spotify Web API
         request.get(options, function(error, response, body) {
           console.log(body);
-          
-        User.findOrCreate({
-          where: { username: body.id },
-            // defaults: {
-            //   job: 'Technical Lead JavaScript'
-            // }
-            
-          })
-          .then((user, created) => { 
-            req.session.username = user.username;
-            req.session.id = user.id;
-            console.log(user.username); 
-            console.log(user.id)
-          // console.log(user.job); // This may or may not be 'Technical Lead JavaScript'
-            console.log(created); // The boolean indicating whether this instance was just created
-          // if (created) {
-          //   console.log(user.job); // This will certainly be 'Technical Lead JavaScript'
-          // }
-          });
         });
 
         // we can also pass the token to the browser to make requests from there
