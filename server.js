@@ -3,7 +3,7 @@ const session = require('express-session'); //session middleware for express
 var cors = require('cors'); // CORS middleware
 //CORS = cross-origin resource sharing - allows restricted resources from a website (ie spotify) to be used by another website (ie our app)
 var cookieParser = require('cookie-parser'); //cookie parsing middleware, creates an object keyed by cookie names
-
+const exphbs = require('express-handlebars');
 const sequelize = require("./config/connection");
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
 
@@ -23,6 +23,11 @@ const PORT = process.env.PORT || 8888;
 
 app.use(session(sess));
 
+// Handlebars hook up
+const hbs = exphbs.create({})
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
+
 app.use(express.static(__dirname + '/public'))
    .use(cors())
    .use(cookieParser());
@@ -31,5 +36,5 @@ app.use(express.static(__dirname + '/public'))
 app.use(require('./controllers/'));
 
 sequelize.sync({ force: false}).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log(`Now listening to ${PORT}!`));
 });

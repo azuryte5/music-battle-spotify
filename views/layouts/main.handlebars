@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Music Battle</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+      <nav class="navbar is-light is-active is-centered" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="https://open.spotify.com/">
+          <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" width="112"
+            height="28">
+        </a>
+      </div>
+
+      <div class="navbar-menu is-active">
+        <div class="navbar-start">
+          <a class="navbar-item is-centered" href="/home">
+            Sputtle
+          </a>
+
+          <a class="navbar-item is-centered" href="/leaderboard">
+            Leaderboard
+          </a>
+          {{!-- Need to hook up to login state --}}
+        {{#if loggedIn}}
+      <div class="navbar-item">
+        <a href="/dashboard">dashboard</a>
+      </div>
+      <div class="navbar-item is-multiline">  
+        <button id="logout" class="button is-danger is-light">logout</button>
+      </div>  
+        {{else}}
+      <div class="navbar-item is-multiline">
+        <a href="/login">Login/Signup</a>
+      </div>
+        {{/if}}
+        {{#if loggedIn}}
+        <div class="navbar-end is-multiline">Currently Login in as : {{{user_id}}}</div>
+        {{/if}}
+      </nav>
+ 
+    <main class="background">
+       {{{ body }}}
+    </main>
+ 
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <img class="is-flex" src="src/Spotify_Logo_RGB_Green.png" width="10%">
+      <p>
+        <strong>Powered By Spotify</strong> made by Sputtle.
+      </p>
+    </div>
+  </footer>
+  <!-- we need some form of attribution, we will need to check the specifics -->
+
+  <script src="script.js"></script>
+</body>
+
+</html>
