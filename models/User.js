@@ -4,7 +4,6 @@ const sequelize = require('../config/connection');
 // create our User model
 class User extends Model {}
 
-
 User.init(
   {
     id: {
@@ -16,16 +15,8 @@ User.init(
     username: {
       type: DataTypes.STRING,
       allowNull: false
-    } 
-  },
-  {
-    sequelize: sequelize,
-    timestamps: false,
-    freezeTableName: true,
-    underscored: true,
-    modelName: 'user'
+    }, 
   }
 );
-
 
 module.exports = User;
