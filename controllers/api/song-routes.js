@@ -19,7 +19,7 @@ router.get('/userplaylists', (req, res) => {
 
 //gets list of tracks/song info for our playlist
 router.get('/', (req, res) => {
-  var playlistID = "63ZyQhDqXWsq0Z39oiyq8q";
+  var playlistID = "63ZyQhDqXWsq0Z39oiyq8q"; //playlist ID for the playlist I made for the app, ID is obtained using the code above
   var options = {
     url: `https://api.spotify.com/v1/playlists/${playlistID}/tracks`,
     headers: { 'Authorization': 'Bearer ' + req.session.access_token }, //access token vs refresh token for calls???
@@ -30,6 +30,14 @@ router.get('/', (req, res) => {
     res.json(body);
   });
 });
+
+router.get('/song1', (req, res) => {
+
+});
+
+
+
+
 
 module.exports = router;
 
