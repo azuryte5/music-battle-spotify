@@ -85,6 +85,7 @@ router.get('/callback', function(req, res) {
 
         req.session.access_token = body.access_token;
         req.session.refresh_token = body.refresh_token;
+        console.log(req.session.access_token)
 
         var options = {
           url: 'https://api.spotify.com/v1/me',
