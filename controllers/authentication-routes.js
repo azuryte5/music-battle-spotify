@@ -95,8 +95,6 @@ router.get('/callback', function(req, res) {
         //redirects to the home page
         res.redirect('/');
 
-
-
         // use the access token to access the Spotify Web API
         request.get(options, function(error, response, body) {
           console.log(body);
@@ -108,31 +106,14 @@ router.get('/callback', function(req, res) {
             // }
             
           })
-          .then((user, created) => { 
+          .then(([user, created]) => { 
             req.session.username = user.username;
             req.session.id = user.id;
             console.log(user.username); 
-            console.log(user.id)
-          // console.log(user.job); // This may or may not be 'Technical Lead JavaScript'
-            console.log(created); // The boolean indicating whether this instance was just created
-          // if (created) {
-          //   console.log(user.job); // This will certainly be 'Technical Lead JavaScript'
-          // }
+            console.log(user.id);
+            console.log(created); 
           });
         });
-
-        // we can also pass the token to the browser to make requests from there
-      //   res.redirect('/#' +
-      //     querystring.stringify({
-      //       access_token: access_token,
-      //       refresh_token: refresh_token
-      //     }));
-      // } else {
-      //   res.redirect('/#' +
-      //     querystring.stringify({
-      //       error: 'invalid_token'
-      //     }));
-      // }
       };
     });
   }

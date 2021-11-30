@@ -1,5 +1,8 @@
 const request = require('request'); // "Request" library
+const { Song } = require('../../models');
 const router = require('express').Router();
+const sequelize = require("../../config/connection");
+
 
 //gets the list of all playlists for the signed in used
 //jess is using this for now to get the playlist id where the app's song library is
@@ -26,13 +29,37 @@ router.get('/', (req, res) => {
     json: true
   };
   request.get(options, function(error, response, body) {
-    console.log(body);
+    // console.log(body);
     res.json(body);
+
+    const songs = body.items.map(song => {
+      return {
+        song_name: song.track.name,
+        song_artist: song.track.artists[0].name,
+        image_url: song.track.album.images[1].url
+      };
+    });
+    console.log(songs);
+    
+    Song.bulkCreate(songs)
+      .then(dbSongData => res.json(dbSongData))
+      .catch(err => {
+        console.log(err);
+        res.status(500).json(err);
+      });
   });
 });
 
-router.get('/song1', (req, res) => {
-
+router.get('/songs', (req, res) => {
+  Song.findAll({ 
+    order: sequelize.random(),
+    limit: 2
+  })
+  .then(dbSongData => res.json(dbSongData))
+  .catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
 });
 
 
