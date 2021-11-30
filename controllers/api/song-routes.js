@@ -32,6 +32,8 @@ router.get('/', (req, res) => {
     // console.log(body);
     res.json(body);
 
+    //gets the particular info we want from the API response and saves it to the songs variable
+    //if we want to capture more song data, the model and the return options in this function need to be updated
     const songs = body.items.map(song => {
       return {
         song_name: song.track.name,
@@ -40,7 +42,7 @@ router.get('/', (req, res) => {
       };
     });
     console.log(songs);
-    
+    // for all of the songs in our returned API data, each song is added to our song table
     Song.bulkCreate(songs)
       .then(dbSongData => res.json(dbSongData))
       .catch(err => {
@@ -50,6 +52,9 @@ router.get('/', (req, res) => {
   });
 });
 
+//returns 2 random songs from the table. 
+// more songs could be returned by increasing the limit
+// if we only want one random song, we can remove the limit and change it to findOne, the rest of the code can remain as is 
 router.get('/songs', (req, res) => {
   Song.findAll({ 
     order: sequelize.random(),
