@@ -1,5 +1,6 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
+const { destroy } = require('./User');
 
 // create our Song model
 class Song extends Model {}
@@ -48,7 +49,11 @@ Song.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'song'
+    modelName: 'song',
+    indexes: [{
+      unique: true,
+      fields: ['track_id']  // this prevents duplicate songs being added to the database
+    }]
   }
 );
 
