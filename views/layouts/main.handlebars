@@ -26,21 +26,17 @@
           <a class="navbar-item is-centered" href="/leaderboard">
             Leaderboard
           </a>
-          {{!-- Need to hook up to login state --}}
         {{#if loggedIn}}
-      <div class="navbar-item">
-        <a href="/dashboard">dashboard</a>
-      </div>
       <div class="navbar-item is-multiline">  
         <button id="logout" class="button is-danger is-light">logout</button>
       </div>  
         {{else}}
       <div class="navbar-item is-multiline">
-        <a href="/login">Login/Signup</a>
+        <a href="/login">Login</a>
       </div>
         {{/if}}
         {{#if loggedIn}}
-        <div class="navbar-end is-multiline">Currently Login in as : {{{user_id}}}</div>
+        <div class="navbar-end is-multiline">Currently Login in as : {{{username}}} or {{{id}}}</div>
         {{/if}}
       </nav>
  

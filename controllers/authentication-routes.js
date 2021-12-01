@@ -93,9 +93,9 @@ router.get('/callback', function(req, res) {
         };
         
         //redirects to the home page
-        res.redirect('/');
+       
 
-        // use the access token to access the Spotify Web API
+        // use the access token to access the Spotify Web API 
         request.get(options, function(error, response, body) {
           console.log(body);
           
@@ -106,12 +106,19 @@ router.get('/callback', function(req, res) {
             // }
             
           })
-          .then(([user, created]) => { 
-            req.session.username = user.username;
-            req.session.id = user.id;
-            console.log(user.username); 
-            console.log(user.id);
-            console.log(created); 
+          .then(([user, created]) => {
+            console.log(user)
+            req.session.save(() => {
+            req.session.username = user.dataValues.username;
+            req.session.id = user.dataValues.id;
+            req.session.loggedIn = true;
+            res.redirect('/home');
+          }) 
+          
+         
+          }).catch(err => {
+            console.log(err);
+            res.status(500).json(err);
           });
         });
       };
