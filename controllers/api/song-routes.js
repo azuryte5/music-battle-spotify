@@ -38,7 +38,8 @@ router.get('/', (req, res) => {
       return {
         song_name: song.track.name,
         song_artist: song.track.artists[0].name,
-        image_url: song.track.album.images[1].url
+        image_url: song.track.album.images[1].url,
+        track_id: song.track.id
       };
     });
     console.log(songs);

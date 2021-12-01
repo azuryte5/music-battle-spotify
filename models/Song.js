@@ -28,6 +28,11 @@ Song.init(
       allowNull: false,
       defaultValue: '../public/src/Spotify_Logo_RBG_Green.png'
     },
+    track_id: {
+      type: DataTypes.STRING,
+      allowNull: false
+    }
+    
     // we will want songs to have a default score of 1000
 
     // score_id: {
