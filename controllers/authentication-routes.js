@@ -92,30 +92,22 @@ router.get('/callback', function(req, res) {
           json: true
         };
         
-        //redirects to the home page
-       
 
         // use the access token to access the Spotify Web API 
         request.get(options, function(error, response, body) {
-          console.log(body);
+        console.log(body.display_name);
           
         User.findOrCreate({
-          where: { username: body.id },
-            // defaults: {
-            //   job: 'Technical Lead JavaScript'
-            // }
-            
-          })
-          .then(([user, created]) => {
+          where: { username: body.id},       
+          //I tried to get spotify_name: body.display_name, it didn't work      
+        }).then(([user, created]) => {
             console.log(user)
             req.session.save(() => {
             req.session.username = user.dataValues.username;
             req.session.id = user.dataValues.id;
             req.session.loggedIn = true;
             res.redirect('/home');
-          }) 
-          
-         
+          })        
           }).catch(err => {
             console.log(err);
             res.status(500).json(err);

@@ -1,6 +1,4 @@
- {{appName}}
- 
- <table width="560" style="padding: 2px; border: 1px solid #888899; background-color:#EEEEEE; ">
+ {{!-- <table width="560" style="padding: 2px; border: 1px solid #888899; background-color:#EEEEEE; ">
       <tbody>
         <tr>
           <td>
@@ -94,7 +92,7 @@
           </tr>
         </tbody>
       </table>
-    </form>
+    </form> --}}
 
     <section class="section hero is-primary has-text-centered">
       <div class="hero-body">
@@ -105,12 +103,22 @@
           Click begin and then choose your favourite spotify track in a 1 V 1 battle or "Sputtle"
         </p>
       </div>
+        <div class="columns is-centered">
+            <div class="column is-align-items-flex-end">
+                <a class="button is-centered is-success is-large" id="beginMatch">Begin Match</a>
+            </div>
+        </div>
     </section>
 
     <section class="section media has-text-centered">
       <div class="container">
         <div class="columns is-centered is-8 is-variable">
-
+            {{#if loggedIn}}
+            {{#each matchup}}
+            {{> battles}}
+            {{/each}}
+            {{/if}}
+{{!--       
           <div class="column is-4 media-left is-multiline">
             <div class="card">
               <div class="is-64x64 px-6">
@@ -119,9 +127,9 @@
               <div class="columns is-centered is-multiline">
                 <h1 class="title pt-2">Song Information</h1>
                 <div class="subtitle column is-6">
-                  <p>Title: {{{dbSongData}}}</p>
-                  <p>Artist: {{{username}}}</p>
-                  <p>Score: {{{loggedIn}}} </p>
+                  <p>Title: {{{dbSongData}}</p>
+                  <p>Artist: username</p>
+                  <p>Score: loggedIn </p>
                 </div>
                 <div class="column is-6">
                   <button class="button is-rounded is-small is-primary">Play Song</button>
@@ -130,15 +138,6 @@
               <footer class="card-footer">
                 <button class="card-footer-item button is-info ">This song wins the Sputtle </button>
               </footer>
-            </div>
-          </div>
-
-
-          <div class="column is-2 media-center has-text-centered">
-            <div class="columns is-centered">
-              <div class="column is-align-items-flex-end">
-                <button class="button is-centered is-success is-large ">Begin Match</button>
-              </div>
             </div>
           </div>
 
@@ -150,9 +149,9 @@
               <div class="columns is-centered is-multiline">
                 <h1 class="title pt-2">Song Information</h1>
                 <div class="subtitle column is-6">
-                  <p>Title: {Example}</p>
-                  <p>Artist: {Example}</p>
-                  <p>Score: {Example} </p>
+                  <p>Title: Example</p>
+                  <p>Artist:Example</p>
+                  <p>Score: Example </p>
                 </div>
                 <div class="column is-6">
                   <button class="button is-rounded is-small is-primary">Play Song</button>
@@ -164,5 +163,5 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> --}}
     </section>
