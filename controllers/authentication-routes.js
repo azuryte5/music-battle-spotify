@@ -129,10 +129,21 @@ router.get('/callback', function(req, res) {
 //sets session tokens to null, revoking the access/connection to spotify to "log out"
 router.get('/logout', function(req, res) {
   req.session.access_token = null;
-  req.session.refresh_token = null;
-  res.redirect('/');
+  req.session.refresh_token = null;  
+  if (req.session.loggedIn) {
+  req.session.destroy(() => {
+  res.status(204).end();
+  })
+  } else {
+  res.status(404).end();
+  }
+   res.redirect('/');
 });
 
+// This will help get back to home.
+router.get('/', function(req, res) {
+  res.redirect('/home');
+})
 //spotify tokens expire so refresh token helps maintain user access
 // app.get('/refresh_token', function(req, res) {
 
