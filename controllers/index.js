@@ -5,9 +5,8 @@ const authenticationRoutes = require('./authentication-routes.js');
 const homeRoutes = require('./home-routes.js');
 
 router.use('/api', apiRoutes);
-router.use('/', authenticationRoutes);
 router.use('/home', homeRoutes);
-
+router.use('/', authenticationRoutes);
 
 
 

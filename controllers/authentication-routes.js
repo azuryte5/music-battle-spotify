@@ -92,26 +92,25 @@ router.get('/callback', function(req, res) {
           json: true
         };
         
-        //redirects to the home page
-        res.redirect('/');
 
-        // use the access token to access the Spotify Web API
+        // use the access token to access the Spotify Web API 
         request.get(options, function(error, response, body) {
-          console.log(body);
+        console.log(body.display_name);
           
         User.findOrCreate({
-          where: { username: body.id },
-            // defaults: {
-            //   job: 'Technical Lead JavaScript'
-            // }
-            
-          })
-          .then(([user, created]) => { 
-            req.session.username = user.username;
-            req.session.id = user.id;
-            console.log(user.username); 
-            console.log(user.id);
-            console.log(created); 
+          where: { username: body.id},       
+          //I tried to get spotify_name: body.display_name, it didn't work      
+        }).then(([user, created]) => {
+            console.log(user)
+            req.session.save(() => {
+            req.session.username = user.dataValues.username;
+            req.session.id = user.dataValues.id;
+            req.session.loggedIn = true;
+            res.redirect('/home');
+          })        
+          }).catch(err => {
+            console.log(err);
+            res.status(500).json(err);
           });
         });
       };
@@ -122,10 +121,21 @@ router.get('/callback', function(req, res) {
 //sets session tokens to null, revoking the access/connection to spotify to "log out"
 router.get('/logout', function(req, res) {
   req.session.access_token = null;
-  req.session.refresh_token = null;
-  res.redirect('/');
+  req.session.refresh_token = null;  
+  if (req.session.loggedIn) {
+  req.session.destroy(() => {
+  res.status(204).end();
+  })
+  } else {
+  res.status(404).end();
+  }
+   res.redirect('/');
 });
 
+// This will help get back to home.
+router.get('/', function(req, res) {
+  res.redirect('/home');
+})
 //spotify tokens expire so refresh token helps maintain user access
 // app.get('/refresh_token', function(req, res) {
 

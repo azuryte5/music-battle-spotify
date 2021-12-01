@@ -60,8 +60,18 @@ router.get('/songs', (req, res) => {
     order: sequelize.random(),
     limit: 2
   })
-  .then(dbSongData => res.json(dbSongData))
-  .catch(err => {
+  .then(dbSongData => {
+    // console.log(dbSongData)
+    const songs = dbSongData.map(song => song.get({ plain: true }))
+    const data = { 
+      id: req.session.id,
+      loggedIn: req.session.loggedIn,
+      username: req.session.username, 
+      matchup:songs}
+    console.log(data)
+    res.render("homepage", data)
+  
+  }).catch(err => {
     console.log(err);
     res.status(500).json(err);
   });
