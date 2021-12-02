@@ -94,7 +94,7 @@
       </table>
     </form> --}}
 
-    <section class="section hero is-primary has-text-centered">
+    <section class="hero is-primary has-text-centered">
       <div class="hero-body">
         <p class="title">
           Song Battle
@@ -103,10 +103,16 @@
           Click begin and then choose your favourite spotify track in a 1 V 1 battle or "Sputtle"
         </p>
       </div>
-        <div class="columns is-centered">
+        <div class="columns is-centered pb-3">
+          {{#if loggedIn}}
             <div class="column is-align-items-flex-end">
                 <a class="button is-centered is-success is-large" id="beginMatch">Begin Match</a>
             </div>
+          {{else}}
+            <div class="column is-align-items-flex-end">
+                <button class="button is-centered is-success is-large" id="beginMatch" disabled>Login to Sputtle</button>
+            </div>
+          {{/if}}
         </div>
     </section>
 
@@ -120,8 +126,6 @@
             {{/if}}
     </section>
     <div class="is-centered">
-    <iframe src="https://open.spotify.com/embed/track/4ZtFanR9U6ndgddUvNcjcG" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
-    <iframe src="https://open.spotify.com/embed/track/02MWAaffLxlfxAUY7c5dvx" width="300" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>
     </div>
 {{!--       
           <div class="column is-4 media-left is-multiline">

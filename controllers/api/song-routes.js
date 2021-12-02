@@ -62,8 +62,9 @@ router.get('/songs', (req, res) => {
     limit: 2
   })
   .then(dbSongData => {
-    // console.log(dbSongData)
+    console.log(dbSongData)
     const songs = dbSongData.map(song => song.get({ plain: true }))
+    console.log(songs)
     const data = { 
       id: req.session.id,
       loggedIn: req.session.loggedIn,
