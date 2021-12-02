@@ -15,6 +15,7 @@ router.get('/', (req, res) => {
         id: req.session.id,
         loggedIn: req.session.loggedIn,
         username: req.session.username, 
+        display_name: req.session.display_name,
         matchup:songs}
       console.log(data)
       res.render("homepage", data)
