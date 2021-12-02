@@ -31,12 +31,12 @@
 // calculateBtn.addEventListener("click", calculateRatingChange)
 
 
-var song0Wins = document.getElementById("button-0")
+
 
 var calculateRatingChange = function()
 {
-var eloWin = document.getElementById("score-0").value
-var eloLose = document.getElementById("score-1").value
+var eloWin = parseInt($("#score-0").text())
+var eloLose = parseInt($("#score-1").text())
 console.log(eloWin)
 console.log(eloLose)
 var k = 40;
@@ -48,21 +48,22 @@ var percentage = 1 / ( 1 + Math.pow( 10, eloDifference / 400 ) );
 // console.log(percentage)
 var win = Math.round( k * ( 1 - percentage ) );
 var loss = Math.round( k * ( 0 - percentage ) );
+console.log(win)
+console.log(loss)
 
-// console.log(win)
-
-
-document.getElementById("score-0").value= eloWin + win;
-document.getElementById("score-1").value = eloWin + loss;
-
+$("#score-0").text(eloWin + win)
+$("#score-1").text(eloLose + loss)
+// document.getElementById("score-0").val()= eloWin + win;
+// document.getElementById("score-1").val() = eloLose + loss;
 }
-song0Wins.addEventListener("click", calculateRatingChange)
 
-var song1Wins = document.getElementById("button-1")
+$("#button-0").on("click", calculateRatingChange)
+
+
 var calculateRatingChange2 = function()
 {
-    var eloWin = parseInt(document.getElementById("score-1").value)
-    var eloLose = parseInt(document.getElementById("score-0").value)
+    var eloWin = parseInt($("#score-1").text())
+    var eloLose = parseInt($("#score-0").text())
     var k = 40;
     
     var eloDifference = eloLose - eloWin;
@@ -76,12 +77,11 @@ var calculateRatingChange2 = function()
     // console.log(win)
     
     
-    document.getElementById("score-1").value= eloWin + win;
-    document.getElementById("score-0").value = eloWin + loss;
-    
+    $("#score-0").text(eloWin + win)
+    $("#score-1").text(eloLose + loss)
 }
 
-song1Wins.addEventListener("click", calculateRatingChange2)
+$("#button-1").on("click", calculateRatingChange2)
 // function calculateRatingChange()
 // {
 // var Elo1 = document.rating.elo1.value * 1;
