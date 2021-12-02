@@ -98,12 +98,12 @@ router.get('/callback', function(req, res) {
         console.log(body.display_name);
           
         User.findOrCreate({
-          where: { username: body.id},       
-          //I tried to get spotify_name: body.display_name, it didn't work      
+          where: { username: body.id}
         }).then(([user, created]) => {
             console.log(user)
             req.session.save(() => {
             req.session.username = user.dataValues.username;
+            req.session.display_name = body.display_name;
             req.session.id = user.dataValues.id;
             req.session.loggedIn = true;
             res.redirect('/home');
