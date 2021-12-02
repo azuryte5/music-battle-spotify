@@ -1,3 +1,4 @@
+const path = require('path');
 var express = require('express'); // express web server framework
 const session = require('express-session'); //session middleware for express
 var cors = require('cors'); // CORS middleware
@@ -28,7 +29,7 @@ const hbs = exphbs.create({})
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
 
-app.use(express.static(__dirname + '/public'))
+app.use(express.static(path.join(__dirname, 'public')))
    .use(cors())
    .use(cookieParser());
 

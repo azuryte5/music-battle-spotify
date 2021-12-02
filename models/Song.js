@@ -34,7 +34,7 @@ Song.init(
       allowNull: false
     }
     
-    // we will want songs to have a default score of 1000
+
 
     // score_id: {
     //   type: DataTypes.INTEGER,
@@ -43,6 +43,7 @@ Song.init(
     //     key: 'id'
     //   }
     // }
+    // Default score 1000
   },
   {
     sequelize: sequelize,

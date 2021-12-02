@@ -4,16 +4,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Music Battle</title>
+  <title>Sputtle</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="icon" href="https://user-images.githubusercontent.com/85147307/144487283-9adfdf2c-f682-426b-91eb-242fe6d285b7.png"/>
 </head>
 
 <body>
       <nav class="navbar is-light is-active is-centered" role="navigation" aria-label="main navigation">
       <div class="navbar-brand">
-        <a class="navbar-item" href="https://open.spotify.com/">
-          <img src="https://storage.googleapis.com/pr-newsroom-wp/1/2018/11/Spotify_Logo_CMYK_Green.png" width="112"
-            height="28">
+        <a class="navbar-item" href="https://github.com/azuryte5/music-battle-spotify" target="_blank">
+          <img src="https://user-images.githubusercontent.com/85147307/144487260-02ac1196-aa23-4851-a43d-5f687ca28d1b.png" alt="Music note green and word battle" width="200%" height="200%" >
         </a>
       </div>
 
@@ -36,7 +36,7 @@
       </div>
         {{/if}}
         {{#if loggedIn}}
-        <div class="navbar-end is-multiline">Currently Login in as : {{{display_name}}}</div>
+        <div class="navbar-item navbar-end is-multiline">Currently Login in as : {{{display_name}}}</div>
         {{/if}}
       </nav>
  
@@ -46,15 +46,17 @@
  
   <footer class="footer">
     <div class="content has-text-centered">
+      <a href="https://open.spotify.com/" target="_blank">
       <img class="is-flex" src="src/Spotify_Logo_RGB_Green.png" width="10%">
+      </a>
       <p>
-        <strong>Powered By Spotify</strong> made by Sputtle.
+        <strong>Powered By Spotify</strong> made by Jess, Tesfu, Clement and Andrew.
       </p>
     </div>
   </footer>
   <!-- we need some form of attribution, we will need to check the specifics -->
 
-  {{!-- <script src="script.js"></script> --}}
+  <script src="script.js"></script>
    <script src="battle.js"></script>
 </body>
 
