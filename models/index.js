@@ -1,6 +1,6 @@
 const User = require('./User');
 const Song = require('./Song')
-const Battle = require('./battle')
+const Battle = require('./Battle')
 
 
 // User has many battles
