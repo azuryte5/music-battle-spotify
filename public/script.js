@@ -57,31 +57,31 @@ $("#score-1").text(eloLose + loss)
 // document.getElementById("score-1").val() = eloLose + loss;
 }
 
-$("#button-0").on("click", calculateRatingChange)
+$("#button-0").on("click", calculateRatingChange).then(redirect("/home")) 
 
 
 var calculateRatingChange2 = function()
 {
-    var eloWin = parseInt($("#score-1").text())
-    var eloLose = parseInt($("#score-0").text())
+    var eloWin2 = parseInt($("#score-1").text())
+    var eloLose2 = parseInt($("#score-0").text())
     var k = 40;
     
-    var eloDifference = eloLose - eloWin;
+    var eloDifference2 = eloLose2 - eloWin2;
     
-    var percentage = 1 / ( 1 + Math.pow( 10, eloDifference / 400 ) );
+    var percentage2 = 1 / ( 1 + Math.pow( 10, eloDifference2 / 400 ) );
     
     // console.log(percentage)
-    var win = Math.round( k * ( 1 - percentage ) );
-    var loss = Math.round( k * ( 0 - percentage ) );
+    var win2 = Math.round( k * ( 1 - percentage2 ) );
+    var loss2 = Math.round( k * ( 0 - percentage2 ) );
     
     // console.log(win)
     
     
-    $("#score-0").text(eloWin + win)
-    $("#score-1").text(eloLose + loss)
+    $("#score-0").text(eloWin2 + win2)
+    $("#score-1").text(eloLose2 + loss2)
 }
 
-$("#button-1").on("click", calculateRatingChange2)
+$("#button-1").on("click", calculateRatingChange2).then(redirect("/home")) 
 // function calculateRatingChange()
 // {
 // var Elo1 = document.rating.elo1.value * 1;

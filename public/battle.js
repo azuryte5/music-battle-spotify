@@ -1,5 +1,5 @@
-const startBattle = () => 
-    location.reload()
+// const startBattle = () => 
+//     // location.reload()
     // fetch('/api/import-songs/songs', {
     //     method: 'GET',
     //     headers: {
@@ -17,11 +17,14 @@ const startBattle = () =>
       
     //   if (response.ok) {
     //     //   console.log("It worked")        
-    //  redirect("/home")
-    //   } else {
-    //     alert(response.statusText);
+    
+      // } else {
+      //   alert(response.statusText);
     //   }
     // }
     // )}
   
-  document.getElementById("beginMatch").addEventListener('click', startBattle);
+  $("#beginMatch").click(function() {
+window.location.href= '/home/sputtle'
+return false  
+});
