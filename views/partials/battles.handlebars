@@ -8,14 +8,14 @@
                 <div class="subtitle column is-6">
                   <p>Title: {{{song_name}}}</p>
                   <p>Artist: {{{song_artist}}}</p>
-                  <p>Score: {{{id}}} </p>
+                  <p id="score-{{@index}}">1000</p>
                 </div>
                 <div class="column is-6">
-                  <button class="button is-rounded is-small is-primary">Play Song</button>
+                <iframe src="https://open.spotify.com/embed/track/{{{track_id}}}" width="80" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>  
                 </div>
               </div>
               <footer class="card-footer">
-                <button class="card-footer-item button is-info ">This song wins the Sputtle </button>
+                <button class="card-footer-item button is-info" id="button-{{@index}}" >This song wins the Sputtle </button>
               </footer>
             </div>
           </div>
