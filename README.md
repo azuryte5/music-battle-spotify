@@ -37,12 +37,15 @@ The link to the heroku: {TBD}
 - sequelize
 - mysql2
 - dotenv
-- Insomnia
 - express handlebars
 - express session
 - connect session sequelize
 - heroku & JawsDB
 - Bulma
+- Jquery/Ajax
+- Spotify API
+
+
 https://github.com/moroshko/elo.js
 
 ## User Story
