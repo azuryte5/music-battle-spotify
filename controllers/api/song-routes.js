@@ -79,6 +79,7 @@ router.get('/songs', (req, res) => {
   });
 });
 
+
 // Needed a quick way to see all songs and compare scores
 router.get('/songs-list', (req, res) => {
   Song.findAll({})
@@ -92,6 +93,13 @@ router.get('/songs-list', (req, res) => {
     res.status(500).json(err);
   });
 });
+
+router.get('/leaderboard', (req, res) => {
+  Song.findAll({ 
+    order:[['score', 'DESC']],  
+  })
+    .then(dbSongData => res.json(dbSongData))
+  });
 
 router.put('/:id', (req, res) => {
   Song.update(req.body, {
