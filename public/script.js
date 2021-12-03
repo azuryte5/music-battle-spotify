@@ -102,9 +102,13 @@ $("button").click(function() {
     switch ( $( "button" ).index( this ) ) {
       case 0 :
         calculateRatingChange()
+        document.getElementById("button-0").disabled = true;
+        document.getElementById("button-1").disabled = true;
         break;
       case 1 :
         calculateRatingChange2()
+        document.getElementById("button-1").disabled = true;
+        document.getElementById("button-0").disabled = true;
         break
       case 2 :
         window.location.href= '/home'
@@ -112,19 +116,5 @@ $("button").click(function() {
     }
    
   });
-// $("#button-1").on("click", calculateRatingChange2());
 
-// function calculateRatingChange()
-// {
-// var Elo1 = document.rating.elo1.value * 1;
-// var Elo2 = document.rating.elo2.value * 1;
-// var K = 40;
-// var EloDifference = Elo2 - Elo1;
-// var percentage = 1 / ( 1 + Math.pow( 10, EloDifference / 400 ) );
-// var win = Math.round( K * ( 1 - percentage ) );
-// if (win > 0 ) win = "+" + win;
-// document.ratingchange.win.value = win;
-// document.ratingchange.loss.value = Math.round( K * ( 0 - percentage ) );
-// document.ratingchange.percent.value =  Math.round( percentage * 100 ) + "%";
-// }
 
