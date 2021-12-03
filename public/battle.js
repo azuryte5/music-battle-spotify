@@ -24,7 +24,7 @@
     // }
     // )}
   
-  $("#beginMatch").click(function() {
-window.location.href= '/home/sputtle'
+$("#beginMatch").on("click",function() {
+window.location.href= '/sputtle'
 return false  
 });

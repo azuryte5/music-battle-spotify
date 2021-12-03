@@ -62,7 +62,7 @@ router.get('/songs', (req, res) => {
     limit: 2
   })
   .then(dbSongData => {
-    console.log(dbSongData)
+    // console.log(dbSongData)
     const songs = dbSongData.map(song => song.get({ plain: true }))
     console.log(songs)
     const data = { 
@@ -79,7 +79,34 @@ router.get('/songs', (req, res) => {
   });
 });
 
+// Needed a quick way to see all songs and compare scores
+router.get('/songs-list', (req, res) => {
+  Song.findAll({})
+  .then(dbSongData => {
+    // console.log(dbSongData)
+    const songs = dbSongData.map(song => song.get({ plain: true }))
+    console.log(songs)
+    res.json(songs) 
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
 
+router.put('/:id', (req, res) => {
+  Song.update(req.body, {
+    where: {
+      id: req.body.id
+    }
+  })
+  .then(dbSongScore => {
+    // console.log(dbSongData)
+    res.json(dbSongScore) 
+  }).catch(err => {
+    console.log(err);
+    res.status(500).json(err);
+  });
+});
 
 
 

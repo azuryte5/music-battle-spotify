@@ -29,9 +29,15 @@
 // }
 
 // calculateBtn.addEventListener("click", calculateRatingChange)
+// function updateTodo(song) {
+//     $.ajax({
+//       method: 'PUT',
+//       url: '/api/import-songs/' + song.id,
+//       score: song.score  
+//     })
+//   }
 
-
-
+// var sputtle1 = document.getElementById("button-0")
 
 var calculateRatingChange = function()
 {
@@ -53,35 +59,61 @@ console.log(loss)
 
 $("#score-0").text(eloWin + win)
 $("#score-1").text(eloLose + loss)
+
+
 // document.getElementById("score-0").val()= eloWin + win;
 // document.getElementById("score-1").val() = eloLose + loss;
+
 }
 
-$("#button-0").on("click", calculateRatingChange).then(redirect("/home")) 
 
 
+// // $("#button-0").on("click", calculateRatingChange());
+// sputtle1.addEventListener("click", calculateRatingChange)
+
+
+// var sputtle2 = document.getElementById("button-1")
 var calculateRatingChange2 = function()
 {
     var eloWin2 = parseInt($("#score-1").text())
     var eloLose2 = parseInt($("#score-0").text())
-    var k = 40;
+    var k2 = 40;
     
     var eloDifference2 = eloLose2 - eloWin2;
     
     var percentage2 = 1 / ( 1 + Math.pow( 10, eloDifference2 / 400 ) );
     
     // console.log(percentage)
-    var win2 = Math.round( k * ( 1 - percentage2 ) );
-    var loss2 = Math.round( k * ( 0 - percentage2 ) );
+    var win2 = Math.round( k2 * ( 1 - percentage2 ) );
+    var loss2 = Math.round( k2 * ( 0 - percentage2 ) );
     
-    // console.log(win)
+    console.log(win2)
+    console.log(loss2)
     
     
-    $("#score-0").text(eloWin2 + win2)
-    $("#score-1").text(eloLose2 + loss2)
+    $("#score-1").text(eloWin2 + win2)
+    $("#score-0").text(eloLose2 + loss2)
 }
 
-$("#button-1").on("click", calculateRatingChange2).then(redirect("/home")) 
+
+$("button").click(function() {
+
+   
+    switch ( $( "button" ).index( this ) ) {
+      case 0 :
+        calculateRatingChange()
+        break;
+      case 1 :
+        calculateRatingChange2()
+        break
+      case 2 :
+        window.location.href= '/home'
+        break;
+    }
+   
+  });
+// $("#button-1").on("click", calculateRatingChange2());
+
 // function calculateRatingChange()
 // {
 // var Elo1 = document.rating.elo1.value * 1;
@@ -95,3 +127,4 @@ $("#button-1").on("click", calculateRatingChange2).then(redirect("/home"))
 // document.ratingchange.loss.value = Math.round( K * ( 0 - percentage ) );
 // document.ratingchange.percent.value =  Math.round( percentage * 100 ) + "%";
 // }
+
