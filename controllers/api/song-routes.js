@@ -79,6 +79,15 @@ router.get('/songs', (req, res) => {
   });
 });
 
+// gets leaderboard (all playlist songs, ranked by score) ...can be deleted if we want, once leaderboard route is fully operational w/leaderboard page
+router.get('/leaderboard', (req, res) => {
+  Song.findAll({ 
+    order:[['score', 'DESC']],  
+  })
+    .then(dbSongData => res.json(dbSongData))
+  });
+
+
 
 
 
