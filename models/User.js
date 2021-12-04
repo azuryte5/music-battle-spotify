@@ -17,11 +17,6 @@ User.init(
       type: DataTypes.STRING,
       allowNull: false
     }
-    // ,
-    // spotify_name: {
-    //   type: DataTypes.STRING,
-    //   allowNull: true
-    // } 
   },
   {
     sequelize: sequelize,

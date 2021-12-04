@@ -2,11 +2,8 @@ const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 const { destroy } = require('./User');
 
-// create our Song model
-class Song extends Model {}
 
-//This is just a draft - tesfu feel free to update it as needed.
-//There does not seem to be a genre in the response from the spotify API so I omitted it
+class Song extends Model {}
 
 Song.init(
   {
@@ -32,18 +29,12 @@ Song.init(
     track_id: {
       type: DataTypes.STRING,
       allowNull: false
+    },
+    score:{
+      type: DataTypes.INTEGER,
+      defaultValue:1000
+
     }
-    
-
-
-    // score_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: 'score',
-    //     key: 'id'
-    //   }
-    // }
-    // Default score 1000
   },
   {
     sequelize: sequelize,

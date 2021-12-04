@@ -94,7 +94,7 @@
       </table>
     </form> --}}
 
-    <section class="hero is-primary has-text-centered">
+    <section class="hero is-primary has-text-centered is-medium">
       <div class="hero-body">
         <p class="title">
           Song Battle
@@ -103,74 +103,19 @@
           Click begin and then choose your favourite spotify track in a 1 V 1 battle or "Sputtle"
         </p>
       </div>
-        <div class="columns is-centered pb-3">
+        <div class="columns is-centered pb-6">
           {{#if loggedIn}}
             <div class="column is-align-items-flex-end">
-                <a class="button is-centered is-success is-large" id="beginMatch">Begin Match</a>
+                <a class="button is-centered is-success is-large is-rounded" id="beginMatch">Begin Sputtle Match</a>
             </div>
           {{else}}
             <div class="column is-align-items-flex-end">
-                <button class="button is-centered is-success is-large" id="beginMatch" disabled>Login to Sputtle</button>
+                <button class="button is-centered is-success is-large is-outlined is-rounded" id="beginMatch" disabled>Login to Sputtle</button>
             </div>
           {{/if}}
         </div>
     </section>
 
-    <section class="section media has-text-centered">
-      <div class="container">
-        <div class="columns is-centered is-8 is-variable">
-            {{#if loggedIn}}
-            {{#each matchup}}
-            {{> battles}}
-            {{/each}}
-            {{/if}}
-    </section>
-    <div class="is-centered">
-    </div>
-{{!--       
-          <div class="column is-4 media-left is-multiline">
-            <div class="card">
-              <div class="is-64x64 px-6">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="track image">
-              </div>
-              <div class="columns is-centered is-multiline">
-                <h1 class="title pt-2">Song Information</h1>
-                <div class="subtitle column is-6">
-                  <p>Title: {{{dbSongData}}</p>
-                  <p>Artist: username</p>
-                  <p>Score: loggedIn </p>
-                </div>
-                <div class="column is-6">
-                  <button class="button is-rounded is-small is-primary">Play Song</button>
-                </div>
-              </div>
-              <footer class="card-footer">
-                <button class="card-footer-item button is-info ">This song wins the Sputtle </button>
-              </footer>
-            </div>
-          </div>
 
-          <div class="column is-4 media-right is-multiline">
-            <div class="card">
-              <div class="is-64x64 px-6">
-                <img src="https://bulma.io/images/placeholders/1280x960.png" alt="track image">
-              </div>
-              <div class="columns is-centered is-multiline">
-                <h1 class="title pt-2">Song Information</h1>
-                <div class="subtitle column is-6">
-                  <p>Title: Example</p>
-                  <p>Artist:Example</p>
-                  <p>Score: Example </p>
-                </div>
-                <div class="column is-6">
-                  <button class="button is-rounded is-small is-primary">Play Song</button>
-                </div>
-              </div>
-              <footer class="card-footer">
-                <button class="card-footer-item button is-info ">This song wins the Sputtle </button>
-              </footer>
-            </div>
-          </div>
-        </div>
-      </div> --}}
+
     
