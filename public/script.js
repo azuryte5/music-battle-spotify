@@ -77,15 +77,15 @@ var calculateRatingChange = async function () {
     },
   });
 
-//   await fetch(`/api/import-songs/${id1}`, {
-//     method: "PUT",
-//     body: JSON.stringify({
-//       score1,
-//     }),
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//   });
+  await fetch(`/api/import-songs/${id1}`, {
+    method: "PUT",
+    body: JSON.stringify({
+      score1,
+    }),
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
 };
 
 var calculateRatingChange2 = async function () {

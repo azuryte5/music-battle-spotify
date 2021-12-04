@@ -77,6 +77,7 @@ router.put('/:id', (req, res) => {
     }
   })
   .then(dbSongScore => {
+    console.log(dbSongScore)
     res.json(dbSongScore) 
   })
 });
