@@ -71,16 +71,11 @@ router.get('/leaderboard', (req, res) => {
 
 
 router.put('/:id', (req, res) => {
-  Song.update(
-    {
-      score: req.body.score
-    },
-    {
+  Song.update(req.body, {
     where: {
       id: req.params.id
     }
-  }
-  )
+  })
   .then(dbSongScore => {
     res.json(dbSongScore) 
   })
