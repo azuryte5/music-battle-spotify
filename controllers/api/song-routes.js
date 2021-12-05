@@ -3,7 +3,6 @@ const { Song } = require('../../models');
 const router = require('express').Router();
 const sequelize = require("../../config/connection");
 
-
 //gets the list of all playlists for the signed in used
 //jess is using this for now to get the playlist id where the app's song library is
 //code to be removed when done - leave for now 
@@ -69,18 +68,60 @@ router.get('/leaderboard', (req, res) => {
     .then(dbSongData => res.json(dbSongData))
   });
 
-
-router.put('/:id', (req, res) => {
-  Song.update(req.body, {
-    where: {
-      id: req.params.id
+// Each post option needs it's own route so json req.body works
+router.put('/1/:id', (req, res) => {
+  Song.update(
+    {score: req.body.score0},
+    {
+    where: {id:req.params.id}
     }
-  })
-  .then(dbSongScore => {
-    console.log(dbSongScore)
-    res.json(dbSongScore) 
-  })
-});
+  )
+  .then(dbSongData => res.json(dbSongData))
+  .catch(err => {
+  console.log(err);
+  res.status(500).json(err);
+  });
+})
+router.put('/2/:id', (req, res) => {
+  Song.update(
+    {score: req.body.score1},
+    {
+    where: {id:req.params.id}
+    }
+  )
+  .then(dbSongData => res.json(dbSongData))
+  .catch(err => {
+  console.log(err);
+  res.status(500).json(err);
+  });
+})
+router.put('/3/:id', (req, res) => {
+  Song.update(
+    {score: req.body.score2},
+    {
+    where: {id:req.params.id}
+    }
+  )
+  .then(dbSongData => res.json(dbSongData))
+  .catch(err => {
+  console.log(err);
+  res.status(500).json(err);
+  });
+})
+router.put('/4/:id', (req, res) => {
+  Song.update(
+    {score: req.body.score3},
+    {
+    where: {id:req.params.id}
+    }
+  )
+  .then(dbSongData => res.json(dbSongData))
+  .catch(err => {
+  console.log(err);
+  res.status(500).json(err);
+  });
+})
+
 
 //gets list of tracks/song info for our playlist
 router.get('/', (req, res) => {
