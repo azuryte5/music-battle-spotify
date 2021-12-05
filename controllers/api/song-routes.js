@@ -3,23 +3,6 @@ const { Song } = require('../../models');
 const router = require('express').Router();
 const sequelize = require("../../config/connection");
 
-//gets the list of all playlists for the signed in used
-//jess is using this for now to get the playlist id where the app's song library is
-//code to be removed when done - leave for now 
-router.get('/userplaylists', (req, res) => {
-  var options = {
-    url: 'https://api.spotify.com/v1/me/playlists',
-    headers: { 'Authorization': 'Bearer ' + req.session.access_token }, //access token vs refresh token for calls???
-    json: true
-  };
-  request.get(options, function(error, response, body) {
-    console.log(body);
-    res.json(body);
-  });
-});
-
-
-
 //returns 2 random songs from the table. 
 // more songs could be returned by increasing the limit
 // if we only want one random song, we can remove the limit and change it to findOne, the rest of the code can remain as is 
@@ -47,7 +30,7 @@ router.get('/songs', (req, res) => {
 });
 
 
-// Needed a quick way to see all songs and compare scores
+// See all songs and compare scores
 router.get('/songs-list', (req, res) => {
   Song.findAll({})
   .then(dbSongData => {
@@ -61,12 +44,12 @@ router.get('/songs-list', (req, res) => {
   });
 });
 
-router.get('/leaderboard', (req, res) => {
-  Song.findAll({ 
-    order:[['score', 'DESC']],  
-  })
-    .then(dbSongData => res.json(dbSongData))
-  });
+// router.get('/leaderboard', (req, res) => {
+//   Song.findAll({ 
+//     order:[['score', 'DESC']],  
+//   })
+//     .then(dbSongData => res.json(dbSongData))
+//   });
 
 // Each post option needs it's own route so json req.body works
 router.put('/1/:id', (req, res) => {

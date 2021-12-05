@@ -106,7 +106,7 @@ $("button").click(function () {
       document.getElementById("button-0").disabled = true;
       break;
     case 2:
-      window.location.href = "/home";
+      window.location.href = "/sputtle";
       break;
   }
 });
