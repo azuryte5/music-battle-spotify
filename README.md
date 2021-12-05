@@ -1,4 +1,4 @@
-# music-battle-spotify
+# music-battle-spotify - aka Sputtle
 Project II
 
 - Main will be locked. Everyone should be pulling and pushing to develop
@@ -11,9 +11,7 @@ Project II
 1. [Links](#links)
 1. [Usage](#usage)
 1. [Tech used](#tech-used)
-1. [Assignment Details](#assignment-details)
-    1. [User Story](#user-story)
-    1. [Acceptance Criteria](#acceptance-criteria)
+1. [User Story](#user-story)
 1. [Credits](#credits)
 
 ## Group Members
@@ -26,39 +24,33 @@ Project II
 ## Links
 GitHub repository: https://github.com/azuryte5/music-battle-spotify
 
-The link to the heroku: {TBD}
+The link to the heroku: https://music-battle-spotify.herokuapp.com/
 
 -----
 ## Usage
+Sputtle is a fun way for songs to battle. Users can discover new music, and make their impact on the leaderboard. 
 
 -----
 ## Tech Used 
 - Node js
-- sequelize
-- mysql2
-- dotenv
-- express handlebars
-- express session
-- connect session sequelize
-- heroku & JawsDB
+- Sequelize
+- Mysql2
+- Dotenv
+- Express handlebars
+- Express session
+- Connect session sequelize
+- Heroku & JawsDB
 - Bulma
 - Jquery/Ajax
 - Spotify API
-
-
-https://github.com/moroshko/elo.js
+- Elo - https://github.com/moroshko/elo.js
 
 ## User Story
 
-```md
-{TBD}
+- AS A user 
+- I WANT to be presented with two battling songs (in a Sputtle!)
+- SO THAT I can vote on which song I prefer, affecting the overall scores of both songs 
 
-```
-
-## Acceptance Criteria
-```md
-{TBD}
-```
 
 ----
 ## Credits
