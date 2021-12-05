@@ -7,7 +7,8 @@ require('dotenv').config();
 
 var client_id = '95a40f72efe7427997b6d815241b2315'; // Our client id
 var client_secret = process.env.CLIENT_SECRET; // Our secret
-var redirect_uri = 'http://localhost:8888/callback'; // Our redirect/callback uri
+// var redirect_uri = 'http://localhost:8888/callback'; // Our redirect/callback uri
+var redirect_uri = 'https://music-battle-spotify.herokuapp.com/callback'; // Our redirect/callback uri
 
 /**
  * Generates a random string containing numbers and letters
@@ -96,7 +97,7 @@ router.get('/callback', function(req, res) {
         // use the access token to access the Spotify Web API 
         request.get(options, function(error, response, body) {
         console.log(body.display_name);
-          
+        // This is a GET AND POST route  
         User.findOrCreate({
           where: { username: body.id}
         }).then(([user, created]) => {

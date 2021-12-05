@@ -6,7 +6,11 @@ const { User, Song } = require('../models');
 router.get('/', (req, res) => {
   Song.findAll({ 
     order:[['score', 'DESC']],   })
-    .then(dbSongData => res.render("leaderboard", {dbSongData}))
+    .then(dbSongData => {
+      const songs = dbSongData.map(song => song.get({ plain: true }))
+      console.log(songs)
+      res.render("leaderboard", {songs,loggedIn: req.session.loggedIn,
+        display_name: req.session.display_name})})
   });
 
 

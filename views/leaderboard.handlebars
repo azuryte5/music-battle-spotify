@@ -1,0 +1,17 @@
+<section class="hero is-primary has-text-centered p-4">Leaderboard</section>
+<section class="section media has-text-centered is-flex-direction-column">
+<div class="container">
+<div class="columns is-centered is-8 is-variable">
+<ol>
+{{#if loggedIn}}
+{{#each songs}}
+ <li>
+    <img src="{{{image_url}}}" alt="track image" height="50">
+    <p>Track Name: {{song_name}}</p>
+    <p>Artist: {{song_artist}}</p>
+    <p>Score: {{score}}</p>
+  </li>
+{{/each}}
+{{/if}}
+</ol>
+</section>

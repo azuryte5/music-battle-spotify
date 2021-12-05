@@ -1,6 +1,6 @@
 const User = require('./User');
 const Song = require('./Song')
-const Battle = require('./Battle')
+// const Battle = require('./Battle')
 
 
 // User has many battles
@@ -11,4 +11,4 @@ const Battle = require('./Battle')
 
 // battles belongs to songs
 
-module.exports = { User, Song, Battle };
+module.exports = { User, Song };
