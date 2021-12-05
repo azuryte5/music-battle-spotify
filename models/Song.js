@@ -1,6 +1,5 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
-const { destroy } = require('./User');
 
 
 class Song extends Model {}

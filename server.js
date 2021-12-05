@@ -2,7 +2,7 @@ const path = require('path');
 var express = require('express'); // express web server framework
 const session = require('express-session'); //session middleware for express
 var cors = require('cors'); // CORS middleware
-//CORS = cross-origin resource sharing - allows restricted resources from a website (ie spotify) to be used by another website (ie our app)
+//CORS (cross-origin resource sharing) - allows restricted resources from a website (ie spotify) to be used by another website (ie our app)
 var cookieParser = require('cookie-parser'); //cookie parsing middleware, creates an object keyed by cookie names
 const exphbs = require('express-handlebars');
 const sequelize = require("./config/connection");

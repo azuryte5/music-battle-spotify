@@ -27,9 +27,6 @@ var generateRandomString = function(length) {
 
 var stateKey = 'spotify_auth_state';
 
-// var app = express();
-
-
 const router = require('express').Router();
 
 router.get('/login', function(req, res) {
@@ -85,7 +82,7 @@ router.get('/callback', function(req, res) {
 
         req.session.access_token = body.access_token;
         req.session.refresh_token = body.refresh_token;
-        console.log(req.session.access_token)
+        // console.log(req.session.access_token)
 
         var options = {
           url: 'https://api.spotify.com/v1/me',
@@ -96,12 +93,11 @@ router.get('/callback', function(req, res) {
 
         // use the access token to access the Spotify Web API 
         request.get(options, function(error, response, body) {
-        console.log(body.display_name);
         // This is a GET AND POST route  
-        User.findOrCreate({
-          where: { username: body.id}
-        }).then(([user, created]) => {
-            console.log(user)
+          User.findOrCreate({
+            where: { username: body.id}
+          }).then(([user, created]) => {
+            // console.log(user)
             req.session.save(() => {
             req.session.username = user.dataValues.username;
             req.session.display_name = body.display_name;
@@ -137,31 +133,7 @@ router.get('/logout', function(req, res) {
 router.get('/', function(req, res) {
   res.redirect('/home');
 })
-//spotify tokens expire so refresh token helps maintain user access
-// app.get('/refresh_token', function(req, res) {
-
-  // requesting access token from refresh token
-//   var refresh_token = req.query.refresh_token;
-//   var authOptions = {
-//     url: 'https://accounts.spotify.com/api/token',
-//     headers: { 'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64')) },
-//     form: {
-//       grant_type: 'refresh_token',
-//       refresh_token: refresh_token
-//     },
-//     json: true
-//   };
-
-//   request.post(authOptions, function(error, response, body) {
-//     if (!error && response.statusCode === 200) {
-//       var access_token = body.access_token;
-//       res.send({
-//         'access_token': access_token
-//       });
-//     }
-//   });
-// });
 
 
 
-module.exports=router;
+module.exports = router;
