@@ -1,11 +1,6 @@
 # music-battle-spotify - aka Sputtle
 Project II
 
-- Main will be locked. Everyone should be pulling and pushing to develop
-- First time from your desktop do git checkout -b develop
-- pull from there and you should keep code chain
-   
-
 # Table of Contents
 1. [Group Members](#group-members)
 1. [Links](#links)
@@ -30,6 +25,9 @@ The link to the heroku: https://music-battle-spotify.herokuapp.com/
 ## Usage
 Sputtle is a fun way for songs to battle. Users can discover new music, and make their impact on the leaderboard. 
 
+![sputtlebattlepage](https://user-images.githubusercontent.com/85147307/144769178-fcfbdc0c-3005-4f98-bdb6-d8fda17568e7.png)
+![code](https://user-images.githubusercontent.com/85147307/144769181-3e6830af-514a-465f-87c3-fdb566a4f60a.png)
+
 -----
 ## Tech Used 
 - Node js
@@ -43,7 +41,7 @@ Sputtle is a fun way for songs to battle. Users can discover new music, and make
 - Bulma
 - Jquery/Ajax
 - Spotify API
-- Elo - https://github.com/moroshko/elo.js
+- [Incorporated some js. from](https://www.3dkingdoms.com/chess/elo.htm)
 
 ## User Story
 
@@ -54,6 +52,7 @@ Sputtle is a fun way for songs to battle. Users can discover new music, and make
 
 ----
 ## Credits
-Some source code from https://www.3dkingdoms.com/chess/elo.htm
+Spotify API 
+🎵🎼📈
 
 -----

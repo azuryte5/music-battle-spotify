@@ -54,6 +54,7 @@ var k2 = 40;
 var eloDifference2 = eloLose2 - eloWin2;
 var percentage2 = 1 / (1 + Math.pow(10, eloDifference2 / 400));
 
+
   // console.log(percentage)
 var win2 = Math.round(k2 * (1 - percentage2));
 var loss2 = Math.round(k2 * (0 - percentage2));

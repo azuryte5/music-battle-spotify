@@ -7,7 +7,8 @@ require('dotenv').config();
 
 var client_id = '95a40f72efe7427997b6d815241b2315'; // Our client id
 var client_secret = process.env.CLIENT_SECRET; // Our secret
-// var redirect_uri = 'http://localhost:8888/callback'; // Our redirect/callback uri
+// Turn local host on to check redirect to locally
+// var redirect_uri = 'http://localhost:8888/callback'; 
 var redirect_uri = 'https://music-battle-spotify.herokuapp.com/callback'; // Our redirect/callback uri
 
 /**
