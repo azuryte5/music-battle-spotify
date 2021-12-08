@@ -4,8 +4,6 @@
   "description": "Project II",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "seeds": "node seeds/index.js",
     "start": "node server.js"
   },
   "repository": {

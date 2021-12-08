@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sputtle</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+  <link rel="icon" href="https://user-images.githubusercontent.com/85147307/144487283-9adfdf2c-f682-426b-91eb-242fe6d285b7.png"/>
+</head>
+
+<body>
+      <nav class="navbar is-light is-active is-centered" role="navigation" aria-label="main navigation">
+      {{!-- <div class="navbar-item">
+        <a class="navbar-item" href="https://github.com/azuryte5/music-battle-spotify" target="_blank">
+          <img src="https://user-images.githubusercontent.com/85147307/144487260-02ac1196-aa23-4851-a43d-5f687ca28d1b.png" alt="Music note green and word battle"  height="100%" >
+        </a>
+      </div> --}}
+
+      <div class="navbar-menu is-active">
+        <div class="navbar-start">
+          <a class="navbar-item is-centered" href="/home">
+            Sputtle
+          </a>
+
+          <a class="navbar-item is-centered" href="/leaderboard">
+            Leaderboard
+          </a>
+        {{#if loggedIn}}
+      <div class="navbar-item is-multiline">  
+        <a id="logout" class="button is-danger is-light" href="/logout">Logout</a>
+      </div>  
+        {{else}}
+      <div class="navbar-item is-multiline">
+        <a href="/login">Login</a>
+      </div>
+        {{/if}}
+        {{#if loggedIn}}
+        <div class="navbar-item navbar-end is-multiline">Currently logged in as : {{{display_name}}}</div>
+        {{/if}}
+      </nav>
+ 
+    <main class="background">
+       {{{ body }}}
+    </main>
+
+
+
+  <footer class="footer">
+    <div class="content has-text-centered">
+      <p class="is-inline-block">
+        <strong>Powered By</strong>
+        <figure class="image is-128x128 is-inline-block">
+          <a href="https://open.spotify.com/" target="_blank">
+            <img class="is-centered" src="src/Spotify_Logo_RGB_Green.png" width="5%">
+          </a>
+        </figure>
+     
+        Made by Jess, Tesfu, Clement and Andrew 🎶
+      </p>
+    <a class="button is-primary is-small" href="/api/import-songs/">Load Playlist</a>
+    </div>
+  </footer>
+
+  <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+  <script src="script.js"></script>
+  <script src="battle.js"></script>
+</body>
+
+</html>

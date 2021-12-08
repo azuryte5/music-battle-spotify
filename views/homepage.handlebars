@@ -1,0 +1,133 @@
+ {{!-- <table width="560" style="padding: 2px; border: 1px solid #888899; background-color:#EEEEEE; ">
+      <tbody>
+        <tr>
+          <td>
+            Song_1:
+            <input id="elo1" value="1000" size="8">
+          </td>
+          <td>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            Song_2:
+            <input id="elo2" value="1000" size="8">
+          </td>
+          <td><button type="button" id="button">Calculate Change</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <form name="ratingchange" id="ratingchange" action="">
+      <table width="560" style="border: 1px solid #888899; background-color:#EEEEEE">
+        <tbody>
+          <tr>
+            <table width="100%" style="margin: 4px 4px 4px 4px;">
+              <tbody>
+                <tr>
+                  <td width="25%">song_1 would improve</td>
+                  <td width="25%">song_1 would decrease</td>
+                  <td width="25%">song_1 If Won, score</td>
+                  <td width="25%">song_1 IF Lost, score</td>
+                </tr>
+                <tr>
+                  <td>
+                    <input name="win_1" value="0" size="8"
+                      style="border: 0px; font-weight:bold; background-color:#EEEEEE">
+                  </td>
+                  <td>
+                    <input name="loss_1" value="0" size="8"
+                      style="border: 0px; font-weight:bold; background-color:#EEEEEE">
+                  </td>
+                  <td>
+                    <input name="score_1" value="0" size="8"
+                      style="border: 0px; font-weight:bold; background-color:#EEEEEE">
+                  </td>
+                  <td>
+                    <input name="score_1b" value="0" size="8"
+                      style="border: 0px; font-weight:bold; background-color:#EEEEEE">
+                  </td>
+                </tr>
+          </tr>
+        </tbody>
+      </table>
+      </tr>
+      </tbody>
+      </table>
+    </form>
+
+    <form name="ratingchange2" id="ratingchange2" action="">
+      <table width="560" style="border: 1px solid #888899; background-color:#EEEEEE">
+        <tbody>
+          <tr>
+            <table width="100%" style="margin: 4px 4px 4px 4px;">
+              <tbody>
+                <tr>
+                  <td width="25%">song_2 would improve</td>
+                  <td width="25%">song_2 would decrease</td>
+                  <td width="25%">song_2 if Won, score</td>
+                  <td width="25%">song_2 if Lost, score</td>
+                </tr>
+                <tr>
+                  <td>
+                    <input name="win_2" value="0" size="8"
+                      style="border: 0px; font-weight:bold; background-color:#EEEEEE">
+                  </td>
+                  <td>
+                    <input name="loss_2" value="0" size="8"
+                      style="border: 0px; font-weight:bold; background-color:#EEEEEE">
+                  </td>
+                  <td>
+                    <input name="score_2" value="0" size="8"
+                      style="border: 0px; font-weight:bold; background-color:#EEEEEE">
+                  </td>
+                  <td>
+                    <input name="score_2b" value="0" size="8"
+                      style="border: 0px; font-weight:bold; background-color:#EEEEEE">
+                  </td>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </tr>
+        </tbody>
+      </table>
+    </form> --}}
+    
+
+ <div class="card">
+        <div class="card-header">
+          <figure class="card-header-title is-centered">
+            <img src="https://user-images.githubusercontent.com/59127869/144726238-13142112-1a62-4314-a4e4-a48fee64c4d7.png" alt="Placeholder image">
+          </figure>
+        </div>
+      </div>
+
+    <section class="hero is-primary has-text-centered is-medium">
+      <div class="hero-body">
+        <p class="title is-size-1-desktop">
+          What is a Sputtle?
+        </p>
+        <p class="subtitle is-size-2-desktop">
+          It's a song battle powered by Spotify!
+        </p>
+        <p class="subtitle is-size-2-desktop">
+          Click begin and then choose your favourite spotify track in a 1 : 1 battle, or "Sputtle".
+        </p>
+      </div>
+        <div class="columns is-centered pb-6">
+          {{#if loggedIn}}
+            <div class="column is-align-items-flex-end">
+                <a class="button is-centered is-success is-large is-rounded" id="beginMatch">Begin Sputtle Match</a>
+            </div>
+          {{else}}
+            <div class="column is-align-items-flex-end">
+                <button class="button is-centered is-success is-large is-outlined is-rounded" id="beginMatch" disabled>Login to Sputtle</button>
+            </div>
+          {{/if}}
+        </div>
+    </section>
+
+
+
+    

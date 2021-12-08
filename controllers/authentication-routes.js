@@ -4,8 +4,10 @@ const User = require('../models/User');
 
 
 var client_id = '95a40f72efe7427997b6d815241b2315'; // Our client id
-var client_secret = '9a516fa30c844e6281e2a7d93c0f0d24'; // Our secret
-var redirect_uri = 'http://localhost:8888/callback'; // Our redirect/callback uri
+var client_secret = process.env.CLIENT_SECRET; // Our secret
+// Turn local host on to check redirect to locally
+// var redirect_uri = 'http://localhost:8888/callback'; 
+var redirect_uri = 'https://music-battle-spotify.herokuapp.com/callback'; // Our redirect/callback uri
 
 /**
  * Generates a random string containing numbers and letters
@@ -23,9 +25,6 @@ var generateRandomString = function(length) {
 };
 
 var stateKey = 'spotify_auth_state';
-
-// var app = express();
-
 
 const router = require('express').Router();
 
@@ -83,6 +82,7 @@ router.get('/callback', function(req, res) {
 
         req.session.access_token = body.access_token;
         req.session.refresh_token = body.refresh_token;
+        // console.log(req.session.access_token)
 
         var options = {
           url: 'https://api.spotify.com/v1/me',
@@ -90,28 +90,26 @@ router.get('/callback', function(req, res) {
           json: true
         };
         
-        //redirects to the home page
-        res.redirect('/');
 
-
-
-        // use the access token to access the Spotify Web API
+        // use the access token to access the Spotify Web API 
         request.get(options, function(error, response, body) {
-          console.log(body);
+        // This is a GET AND POST route  
+          User.findOrCreate({
+            where: { username: body.id}
+          }).then(([user, created]) => {
+            // console.log(user)
+            req.session.save(() => {
+            req.session.username = user.dataValues.username;
+            req.session.display_name = body.display_name;
+            req.session.id = user.dataValues.id;
+            req.session.loggedIn = true;
+            res.redirect('/home');
+          })        
+          }).catch(err => {
+            console.log(err);
+            res.status(500).json(err);
+          });
         });
-
-        // we can also pass the token to the browser to make requests from there
-      //   res.redirect('/#' +
-      //     querystring.stringify({
-      //       access_token: access_token,
-      //       refresh_token: refresh_token
-      //     }));
-      // } else {
-      //   res.redirect('/#' +
-      //     querystring.stringify({
-      //       error: 'invalid_token'
-      //     }));
-      // }
       };
     });
   }
@@ -120,35 +118,22 @@ router.get('/callback', function(req, res) {
 //sets session tokens to null, revoking the access/connection to spotify to "log out"
 router.get('/logout', function(req, res) {
   req.session.access_token = null;
-  req.session.refresh_token = null;
-  res.redirect('/');
+  req.session.refresh_token = null;  
+  if (req.session.loggedIn) {
+  req.session.destroy(() => {
+  res.status(204).end();
+  })
+  } else {
+  res.status(404).end();
+  }
+   res.redirect('/');
 });
 
-//spotify tokens expire so refresh token helps maintain user access
-// app.get('/refresh_token', function(req, res) {
-
-  // requesting access token from refresh token
-//   var refresh_token = req.query.refresh_token;
-//   var authOptions = {
-//     url: 'https://accounts.spotify.com/api/token',
-//     headers: { 'Authorization': 'Basic ' + (new Buffer(client_id + ':' + client_secret).toString('base64')) },
-//     form: {
-//       grant_type: 'refresh_token',
-//       refresh_token: refresh_token
-//     },
-//     json: true
-//   };
-
-//   request.post(authOptions, function(error, response, body) {
-//     if (!error && response.statusCode === 200) {
-//       var access_token = body.access_token;
-//       res.send({
-//         'access_token': access_token
-//       });
-//     }
-//   });
-// });
+// This will help get back to home.
+router.get('/', function(req, res) {
+  res.redirect('/home');
+})
 
 
 
-module.exports=router;
+module.exports = router;

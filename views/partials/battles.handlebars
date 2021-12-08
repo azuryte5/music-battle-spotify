@@ -1,0 +1,23 @@
+          <div class="column is-4 is-multiline">
+            <div class="card">
+              <div class="is-64x64 px-6">
+                <img src="{{{image_url}}}" alt="track image">
+              </div>
+              <div class="columns is-centered is-multiline">
+                <h1 class="title pt-2" >Song Information</h1>
+                <div class="subtitle column is-6">
+                  <p id="tag-{{@index}}" style="color:white">{{{id}}}</p>
+                  <p>Title: {{{song_name}}}</p>
+                  <p>Artist: {{{song_artist}}}</p>
+                  <p id="score-{{@index}}">{{{score}}}</p>
+                </div>
+                <div class="column is-6">
+                <iframe src="https://open.spotify.com/embed/track/{{{track_id}}}" width="80" height="80" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>  
+                </div>
+              </div>
+              <footer class="card-footer">
+                <button class="card-footer-item button is-info" id="button-{{@index}}" >This song wins the Sputtle </button>
+              </footer>
+            </div>
+          </div>
+    
