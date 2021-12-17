@@ -19,7 +19,7 @@ Project II
 ## Links
 GitHub repository: https://github.com/azuryte5/music-battle-spotify
 
-The link to the heroku: https://music-battle-spotify.herokuapp.com/
+The link to the heroku: https://music-battle-spotify.herokuapp.com/ Demo Login: sputtle.user@gmail.com Password: sputtle-demo-password
 
 -----
 ## Usage
